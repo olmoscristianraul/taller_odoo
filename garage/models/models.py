@@ -33,8 +33,7 @@ class coche(models.Model):
     def _getannos(self):
         for coche in self:
             coche.annos = 0
-
-
+            
 class mantenimiento(models.Model):
     _name = 'garage.mantenimiento'
     _description = 'Permite definir el mantenimiento rutinario de un coche'
