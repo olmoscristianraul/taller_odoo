@@ -10,7 +10,7 @@ class aparcamiento(models.Model):
     plazas = fields.Integer(string='Plazas', required=True)
 
     #Relaciones
-    coche_ids =fields.One2many('garage.coche','aparcamiento_id', string='Coches')
+    #coche_ids =fields.One2many('garage.coche','aparcamiento_id', string='Coches')
 
 
 class coche(models.Model):
@@ -27,8 +27,8 @@ class coche(models.Model):
     annos = fields.Integer('Años', compute='_get_annos')
     descripcion = fields.Text('Descripción')
 
-    aparcamiento_id = fields.Many2one('garage.aparcamiento', string='Aparcamiento')
-    aparcamiento_ids = fields.Many2many('garage.mantenimiento', string='Mantenimientos')
+    #aparcamiento_id = fields.Many2one('garage.aparcamiento', string='Aparcamiento')
+    #aparcamiento_ids = fields.Many2many('garage.mantenimiento', string='Mantenimientos')
 
     @api.depends('construido')
     def _get_annos(self):
@@ -44,4 +44,4 @@ class mantenimiento(models.Model):
     tipo = fields.Selection(string='Tipo', selection[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
-    coche_ids = fields.Many2many('garage.coche', string='Coche')
+    #coche_ids = fields.Many2many('garage.coche', string='Coche')
