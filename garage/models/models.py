@@ -41,7 +41,7 @@ class mantenimiento(models.Model):
     _order = 'fecha'
 
     fecha = fields.Date('Fecha', required=True, default = fields.date.today())
-    tipo = fields.Selection(string='Tipo', selection[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
+    tipo = fields.Selection(string='Tipo', selection=[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
     #coche_ids = fields.Many2many('garage.coche', string='Coche')
