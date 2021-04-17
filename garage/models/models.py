@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 
-
-class aparcamiento(models.Model):
+class Aparcamiento(models.Model):
     _name = 'garage.aparcamiento'
     _description = 'Permite definir las caracteristicas de un aparcamiento'
 
     name = fields.Char('Direccción', required=True)
     plazas = fields.Integer(string='Plazas', required=True)
+    
 
     #Relaciones
     #coche_ids =fields.One2many('garage.coche','aparcamiento_id', string='Coches')
