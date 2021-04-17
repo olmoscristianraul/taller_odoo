@@ -9,7 +9,7 @@ class aparcamiento(models.Model):
     plazas = fields.Integer(string='Plazas', required=True)
 
     #Relaciones
-    coche_id =fields.One2many('garage.coche','aparcamiento_id', string=('Coches'))
+    coche_ids =fields.One2many('garage.coche','aparcamiento_id', string='Coches')
 
 
 class coche(models.Model):
@@ -18,9 +18,9 @@ class coche(models.Model):
     _order = 'name'
 
     name = fields.Char('Matricula', required=True, size=7)
-    plazas = fields.Integer(string='Plazas', required=True)
+    #plazas = fields.Integer(string='Plazas', required=True)
     modelo =  fields.Char(string='Modelo', required=True)
-    contruido = fields.Date(string='Fecha de construcción')
+    construido = fields.Date(string='Fecha de construcción')
     consumo = fields.Float('Consumo',(4,1), default=0.0, help='Consumo promedio cada 100 kms')
     #annos = fields.Integer('Años', compute='_get_annos', store=True)#no se requiere strore = true en este ejemplo
     annos = fields.Integer('Años', compute='_get_annos')
@@ -30,15 +30,17 @@ class coche(models.Model):
     aparcamiento_ids = fields.Many2many('garage.mantenimiento', string='Mantenimientos')
 
     @api.depends('construido')
-    def _getannos(self):
+    def _get_annos(self):
         for coche in self:
             coche.annos = 0
-            
+
 class mantenimiento(models.Model):
     _name = 'garage.mantenimiento'
     _description = 'Permite definir el mantenimiento rutinario de un coche'
-    fecha = fields.Date(string='Fecha', required = True, default = fields.date.today())
-    tipo = fields.Selection(string='Tipo', selection[('l','Lavar',('r','Revisión',('m','Mecánica',('p','Pintura'], default = 'l')
+    _order = 'fecha'
+
+    fecha = fields.Date('Fecha', required=True, default = fields.date.today())
+    tipo = fields.Selection(string='Tipo', selection[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
     coche_ids = fields.Many2many('garage.coche', string='Coche')
