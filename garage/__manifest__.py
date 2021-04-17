@@ -19,7 +19,7 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        #'hr', 
+        'base', 
         #'contacts'
     ],
 
@@ -31,4 +31,7 @@
     # 'demo': [
     #     'demo/demo.xml',
     # ],
+
+    #indicamos que es una app
+    'application': True,
 }
