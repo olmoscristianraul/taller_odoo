@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Garage",
+    'name': "Garaje",
 
-    'summary': "Control de Garage",
+    'summary': "Control de Garaje",
 
     'description': """
-        Modulo para el control de Garage
+        Modulo para el control de Garaje
     """,
 
-    'author': "HC Sinergia",
+    'author': "Cristián R. Olmos - HC Sinergia S.A.",
     'website': "http://www.hcsinergia.com",
 
     # Categories can be used to filter modules in modules listing
