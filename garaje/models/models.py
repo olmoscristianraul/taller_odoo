@@ -2,18 +2,18 @@
 from odoo import models, fields, api
 
 class aparcamiento(models.Model):
-    _name = 'garage.aparcamiento'
+    _name = 'garaje.aparcamiento'
     _description = 'Permite definir las caracteristicas de un aparcamiento'
 
     name = fields.Char('Direccción', required=True)
     plazas = fields.Integer(string='Plazas', required=True)
     
     #Relaciones
-    coche_ids =fields.One2many('garage.coche','aparcamiento_id', string='Coches')
+    coche_ids =fields.One2many('garaje.coche','aparcamiento_id', string='Coches')
 
 
 class coche(models.Model):
-    _name = 'garage.coche'
+    _name = 'garaje.coche'
     _description = 'Permite definir las caracteristicas de un coche'
     _order = 'name'
 
@@ -25,8 +25,8 @@ class coche(models.Model):
     annos = fields.Integer('Años', compute='_get_annos')
     descripcion = fields.Text('Descripción')
 
-    aparcamiento_id = fields.Many2one('garage.aparcamiento', string='Aparcamiento')
-    aparcamiento_ids = fields.Many2many('garage.mantenimiento', string='Mantenimientos')
+    aparcamiento_id = fields.Many2one('garaje.aparcamiento', string='Aparcamiento')
+    aparcamiento_ids = fields.Many2many('garaje.mantenimiento', string='Mantenimientos')
 
     @api.depends('construido')
     def _get_annos(self):
@@ -34,7 +34,7 @@ class coche(models.Model):
             coche.annos = 0
 
 class mantenimiento(models.Model):
-    _name = 'garage.mantenimiento'
+    _name = 'garaje.mantenimiento'
     _description = 'Permite definir el mantenimiento rutinario de un coche'
     _order = 'fecha'
 
@@ -42,4 +42,4 @@ class mantenimiento(models.Model):
     tipo = fields.Selection(string='Tipo', selection=[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
-    coche_ids = fields.Many2many('garage.coche', string='Coche')
+    coche_ids = fields.Many2many('garaje.coche', string='Coche')
