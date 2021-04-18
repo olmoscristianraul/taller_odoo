@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-from datetime import datetime 
+#from datetime import datetime 
 
 
 class aparcamiento(models.Model):
@@ -27,7 +27,7 @@ class coche(models.Model):
     annos = fields.Integer('Años', compute='_get_annos')
     descripcion = fields.Text('Descripción')
 
-    aparcamiento_id = fields.Many2one('garaje.aparcamiento', string='Aparcamiento')
+    aparcamiento_id = fields.Many2one('garaje.aparcamiento', string='Aparcamiento', required=True)
     aparcamiento_ids = fields.Many2many('garaje.mantenimiento', string='Mantenimientos')
 
     @api.depends('construido')
@@ -44,4 +44,4 @@ class mantenimiento(models.Model):
     tipo = fields.Selection(string='Tipo', selection=[('l','Lavar'),('r','Revisión'),('m','Mecánica'),('p','Pintura')], default = 'l')
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
-    coche_ids = fields.Many2many('garaje.coche', string='Coche')
+    coche_ids = fields.Many2many('garaje.coche', string='Coches')
