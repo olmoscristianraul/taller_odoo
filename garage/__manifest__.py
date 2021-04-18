@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Garaje",
+    'name': "Garage",
 
-    'summary': "Control de Garaje",
+    'summary': "Control de garage",
 
     'description': """
-        Modulo para el control de Garaje
+        Modulo para el control de garage
     """,
 
     'author': "Cristián R. Olmos - HC Sinergia S.A.",
