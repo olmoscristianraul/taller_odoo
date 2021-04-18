@@ -3,7 +3,7 @@
   <data>
 
     <!-- VISTA DE APARCAMIENTO -->
-    <record id="garaje.aparcamiento_list_view" model="ir.ui.view">
+    <record model="ir.ui.view" id="garaje.aparcamiento_list_view">
       <field name="name">garaje.aparcamiento.view.tree</field>
       <field name="model">garaje.aparcamiento</field>
       <field name="arch" type="xml">
@@ -44,13 +44,13 @@
 
 
     <!-- Definicion de Menús -->
-    <record model="ir.actions.act_window" id="garaje.aparcamiento_action_window" >
+    <record model="ir.actions.act_window" id="garaje.aparcamiento_action_window">
       <field name="name">Aparcamientos</field>
       <field name="res_model">garaje.aparcamiento</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="garaje.coche_action_window" model="ir.actions.act_window">
+    <record model="ir.actions.act_window" id="garaje.coche_action_window" >
       <field name="name">Coches</field>
       <field name="res_model">garaje.coche</field>
       <field name="view_mode">tree,form</field>
@@ -69,7 +69,6 @@
     <menuitem name="Aparcamientos" id="garaje.aparcamiento_menu" parent="garaje.menu_root" action="garaje.aparcamiento_action_window"/>
     <menuitem name="Coches" id="garaje.coche_menu" parent="garaje.menu_root" action="garaje.coche_action_window"/>
     <menuitem name="Mantenimientos" id="garaje.mantenimiento_menu" parent="garaje.menu_root" action="garaje.mantenimiento_action_window"/>
-
 
   </data>
 </odoo>
