@@ -21,7 +21,7 @@ class coche(models.Model):
     modelo =  fields.Char(string='Modelo', required=True)
     construido = fields.Date(string='Fecha de construcción')
     consumo = fields.Float('Consumo',(4,1), default=0.0, help='Consumo promedio cada 100 kms')
-    #annos = fields.Integer('Años', compute='_get_annos', store=True)#no se requiere strore = true en este ejemplo
+    averiado = fields.Boolean(string='Averiado', default=False)
     annos = fields.Integer('Años', compute='_get_annos')
     descripcion = fields.Text('Descripción')
 
