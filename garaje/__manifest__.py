@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Garaje",
+    'name': "Gestión de Garaje",
 
     'summary': "Control de garaje",
 

@@ -3,11 +3,11 @@
   <data>
 
     <!-- VISTA DE APARCAMIENTO -->
-    <record model="ir.ui.view" id="garaje.aparcamiento_list_view">
+    <record id="garaje.aparcamiento_list_view" model="ir.ui.view">
       <field name="name">garaje.aparcamiento.view.tree</field>
       <field name="model">garaje.aparcamiento</field>
       <field name="arch" type="xml">
-        <tree> 
+        <tree string="Tree Name"> 
           <field name="name"/>
           <field name="plazas"/>
         </tree>
