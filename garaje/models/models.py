@@ -13,6 +13,11 @@ class aparcamiento(models.Model):
     #Relaciones
     coche_ids =fields.One2many('garaje.coche','aparcamiento_id', string='Coches')
 
+    @api.depends('construido')
+    def _get_annos(self):
+        for coche in self:
+            coche.annos = 0
+
 
 class coche(models.Model):
     _name = 'garaje.coche'
@@ -28,7 +33,7 @@ class coche(models.Model):
     descripcion = fields.Text('Descripción')
 
     aparcamiento_id = fields.Many2one('garaje.aparcamiento', string='Aparcamiento', required=True)
-    aparcamiento_ids = fields.Many2many('garaje.mantenimiento', string='Mantenimientos')
+    mantenimiento_ids = fields.Many2many('garaje.mantenimiento', string='Mantenimientos')
 
     @api.depends('construido')
     def _get_annos(self):
