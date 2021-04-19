@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Definimos una categoria de seguridad para el modulo -->
+        <record model="ir.module.category" id="garaje.module_category_garaje">
+            <field name="name">Garaje</field>
+            <field name="description">Ayuda a gestionar tu garaje</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record model="res.groups" id="group_garaje_usuario">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="garaje.module_category_garaje"/> 
+            <field name="comment">Usuarios que gestionan coches y mantenimientos</field>
+            <!-- Si quiero agregar a todos los usuarios a un grupo-->
+            <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]" /> -->
+
+        </record>
+
+        <record model="res.groups" id="group_garaje_director">
+            <field name="name">Director</field>
+            <field name="category_id" ref="garaje.module_category_garaje"/>
+            <field name="comment">Usuarios que gestionan los aparcamientos</field>
+            <!-- Los miembros del grupo director tambien son miembros del grupo de usuarios -->
+            <field name="implied_ids" eval="[(4, ref('group_garaje_usuario'))]" />
+            <!-- agregamos a los usuarios administradores de odoo  -->
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>
