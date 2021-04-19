@@ -1,0 +1,116 @@
+<odoo>
+    <data>
+
+        <!-- <data>
+        <record id="objeto0" model="garaje.garaje">
+        <field name="name">Objeto 0</field>
+        <field name="name">0</field>
+    </data>
+
+    <data>
+        <record id="objeto1" model="garaje.garaje">
+        <field name="name">Objeto 1</field>
+        <field name="name">10</field>
+    </data>
+
+    <data>
+        <record id="objeto2" model="garaje.garaje">
+        <field name="name">Objeto 2</field>
+        <field name="name">20</field>
+    </data>
+
+    <data>
+        <record id="objeto3" model="garaje.garaje">
+        <field name="name">Objeto 3</field>
+        <field name="name">30</field>
+    </data>
+
+    <data>
+        <record id="objeto4" model="garaje.garaje">
+        <field name="name">Objeto 4</field>
+        <field name="name">40</field>
+    </data> -->
+
+        <record id="aparcamiento1" model="garaje.aparcamiento">
+            <field name="name">Plaza Mayor</field>
+            <field name="plazas">8</field>
+        </record>
+
+        <record id="aparcamiento2" model="garaje.aparcamiento">
+            <field name="name">Calle Arriba</field>
+            <field name="plazas">10</field>
+
+        </record>
+        <record id="aparcamiento3" model="garaje.aparcamiento">
+            <field name="name">Otro lado</field>
+            <field name="plazas">15</field>
+        </record>
+
+        <record id="coche1" model="garaje.coche">
+            <field name="name"></field>
+            <field name="modelo"></field>
+            <field name="construido"></field>
+            <field name="consumo"></field>
+            <field name="averiado"></field>
+            <field name="descripcion"></field>
+            <field name="aparcamiento_id" ref=""></field>
+        </record>
+
+        <record id="coche1" model="garaje.coche">
+            <field name="name">1234abb</field>
+            <field name="modelo">Mercedes</field>
+            <field name="construido">1996-06-10</field>
+            <field name="consumo">11.5</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Un clasico</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"/>
+        </record>
+
+        <record id="coche2" model="garaje.coche">
+            <field name="name">0600bcn</field>
+            <field name="modelo">Seat 600</field>
+            <field name="construido">1980-10-05</field>
+            <field name="consumo">4</field>
+            <field name="averiado">0</field>
+            <field name="descripcion">Aparato</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"/>
+        </record>
+
+        <record id="coche3" model="garaje.coche">
+            <field name="name">s5289al</field>
+            <field name="modelo">Peugeot 205</field>
+            <field name="construido">1992-04-10</field>
+            <field name="consumo">11.5</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Un clasico</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"></field>
+        </record>
+
+        <record id="coche4" model="garaje.coche">
+            <field name="name">s5289al</field>
+            <field name="modelo">Peugeot 205</field>
+            <field name="construido">1992-04-10</field>
+            <field name="consumo">11.5</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Un clasico</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"/>
+        </record>
+
+        <record id="coche4" model="garaje.coche">
+            <field name="name">9361cyl</field>
+            <field name="modelo">Mazda RX8</field>
+            <field name="construido">1996-06-11</field>
+            <field name="consumo">20.6</field>
+            <field name="averiado">False</field>
+            <field name="descripcion">Se calienta un poco</field>
+            <field name="aparcamiento_id" ref="aparcamiento2"/>
+        </record>
+
+        <record id="mantenimiento1" model="garaje.mantenimiento">
+            <field name="fecha" eval="datetime.now()"/>
+            <field name="tipo">l</field>
+            <field name="coste">23</field>
+            <field name="coche_ids" eval="[(6, 0, [ref('coche1'), ref('coche2')])]" />
+        </record>
+    </data>
+</odoo>

@@ -28,12 +28,13 @@
         'security/garaje_security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
+        'data/garaje_data.xml',
 
     ],
     # only loaded in demonstration mode
-    # 'demo': [
-    #     'demo/demo.xml',
-    # ],
+    'demo': [
+        'demo/demo.xml',
+    ],
 
     #indicamos que es una app
     'application': True,
