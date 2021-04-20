@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-#from datetime import datetime 
+# from datetime import datetime
+from dateutil.relativedelta import *
+from datetime import date
 
 
 class aparcamiento(models.Model):
@@ -16,7 +18,9 @@ class aparcamiento(models.Model):
     @api.depends('construido')
     def _get_annos(self):
         for coche in self:
-            coche.annos = 0
+            hoy = date.today()
+            coche.annos = relativedelta(hoy,coche.construido).years
+
 
 
 class coche(models.Model):
@@ -38,7 +42,11 @@ class coche(models.Model):
     @api.depends('construido')
     def _get_annos(self):
         for coche in self:
-            coche.annos = 0
+            hoy=date.today()
+            coche.annos = relativedelta(hoy,coche.construido).years
+
+    #Restricciones, mismo formato que en la bd
+    _sql_constraints=[('name_uniq', 'unique(name)', 'La matricula ya existe')]
 
 class mantenimiento(models.Model):
     _name = 'garaje.mantenimiento'

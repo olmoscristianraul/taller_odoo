@@ -1,6 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- <data> -->
-    <!-- AQUI SE DEFINEN LOS DATOS QUE SE CARGAN SIEMPRE EN LA APLICACI'ON  -->
+    <data>
+        <!-- AQUI SE DEFINEN LOS DATOS QUE SE CARGAN SIEMPRE EN LA APLICACI'ON  -->
+        <record id="aparcamiento1" model="garaje.aparcamiento">
+            <field name="name">Plaza Mayor</field>
+            <field name="plazas">8</field>
+        </record>
+        <record id="aparcamiento2" model="garaje.aparcamiento">
+            <field name="name">Calle Arriba</field>
+            <field name="plazas">10</field>
+        </record>
 
-    <!-- </data> -->
+        <record id="coche1" model="garaje.coche">
+            <field name="name">1234abb</field>
+            <field name="modelo">Mercedes</field>
+            <field name="construido">1996-06-10</field>
+            <field name="consumo">11.5</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Un clasico</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"/>
+        </record>
+        <record id="coche2" model="garaje.coche">
+            <field name="name">0600bcn</field>
+            <field name="modelo">Seat 600</field>
+            <field name="construido">1980-10-05</field>
+            <field name="consumo">4</field>
+            <field name="averiado">0</field>
+            <field name="descripcion">Aparato</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"/>
+        </record>
+        <record id="coche3" model="garaje.coche">
+            <field name="name">s5289al</field>
+            <field name="modelo">Peugeot 205</field>
+            <field name="construido">1992-04-10</field>
+            <field name="consumo">11.5</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Un clasico</field>
+            <field name="aparcamiento_id" ref="aparcamiento1"></field>
+        </record>
+        <record id="coche4" model="garaje.coche">
+            <field name="name">9361cyl</field>
+            <field name="modelo">Mazda RX8</field>
+            <field name="construido">1996-06-11</field>
+            <field name="consumo">20.6</field>
+            <field name="averiado">False</field>
+            <field name="descripcion">Se calienta un poco</field>
+            <field name="aparcamiento_id" ref="aparcamiento2"/>
+        </record>
+
+        <record id="mantenimiento1" model="garaje.mantenimiento">
+            <field name="fecha" eval="datetime.now()"/>
+            <field name="tipo">l</field>
+            <field name="coste">23</field>
+            <field name="coche_ids" eval="[(6, 0, [ref('coche1'), ref('coche2')])]" />
+        </record>
+    </data>
 </odoo>

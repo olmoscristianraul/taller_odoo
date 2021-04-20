@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="aparcamiento1" model="garaje.aparcamiento">
@@ -18,7 +19,6 @@
             <field name="descripcion">Un clasico</field>
             <field name="aparcamiento_id" ref="aparcamiento1"/>
         </record>
-
         <record id="coche2" model="garaje.coche">
             <field name="name">0600bcn</field>
             <field name="modelo">Seat 600</field>
@@ -28,7 +28,6 @@
             <field name="descripcion">Aparato</field>
             <field name="aparcamiento_id" ref="aparcamiento1"/>
         </record>
-
         <record id="coche3" model="garaje.coche">
             <field name="name">s5289al</field>
             <field name="modelo">Peugeot 205</field>
@@ -38,17 +37,6 @@
             <field name="descripcion">Un clasico</field>
             <field name="aparcamiento_id" ref="aparcamiento1"></field>
         </record>
-
-        <record id="coche4" model="garaje.coche">
-            <field name="name">s5289al</field>
-            <field name="modelo">Peugeot 205</field>
-            <field name="construido">1992-04-10</field>
-            <field name="consumo">11.5</field>
-            <field name="averiado">True</field>
-            <field name="descripcion">Un clasico</field>
-            <field name="aparcamiento_id" ref="aparcamiento1"/>
-        </record>
-
         <record id="coche4" model="garaje.coche">
             <field name="name">9361cyl</field>
             <field name="modelo">Mazda RX8</field>
@@ -65,5 +53,5 @@
             <field name="coste">23</field>
             <field name="coche_ids" eval="[(6, 0, [ref('coche1'), ref('coche2')])]" />
         </record>
-    </data>
+    <data>
 </odoo>
