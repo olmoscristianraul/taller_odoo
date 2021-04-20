@@ -45,7 +45,6 @@ class coche(models.Model):
             hoy=date.today()
             coche.annos = relativedelta(hoy,coche.construido).years
 
-
     #Restricciones, mismo formato que en la bd
     _sql_constraints=[('name_uniq', 'unique(name)', 'La matricula ya existe')]
 
@@ -59,3 +58,10 @@ class mantenimiento(models.Model):
     coste = fields.Float('Coste', (8,2), help='Coste total del mantenimiento')
     
     coche_ids = fields.Many2many('garaje.coche', string='Coches')
+
+    def name_get(self):
+        resultados = []
+        for mantenimiento in self:
+            descripcion = f'{len(mantenimiento.coche_ids)} coches - {mantenimiento.coste} $' 
+            resultados.append((mantenimiento.id, descripcion))
+        return resultados

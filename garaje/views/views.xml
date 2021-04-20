@@ -204,7 +204,7 @@
     </record>
 
     <!-- Top menú item -->
-    <menuitem name="Gestión de Garaje" id="garaje.menu_root" />
+    <menuitem name="Gestión de Garaje" id="garaje.menu_root" web_icon="garaje,static/description/icon.png" />
 
     <!-- Menú Categoria -->
     <menuitem name="Aparcamientos" id="garaje.aparcamiento_menu" parent="garaje.menu_root" action="garaje.aparcamiento_action_window"/>
