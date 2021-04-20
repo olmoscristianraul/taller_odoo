@@ -45,6 +45,7 @@ class coche(models.Model):
             hoy=date.today()
             coche.annos = relativedelta(hoy,coche.construido).years
 
+
     #Restricciones, mismo formato que en la bd
     _sql_constraints=[('name_uniq', 'unique(name)', 'La matricula ya existe')]
 

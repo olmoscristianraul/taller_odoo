@@ -23,6 +23,7 @@
         #'contacts'
     ],
 
+
     # always loaded
     'data': [
         'security/garaje_security.xml',

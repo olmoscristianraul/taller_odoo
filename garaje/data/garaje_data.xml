@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- AQUI SE DEFINEN LOS DATOS QUE SE CARGAN SIEMPRE EN LA APLICACI'ON  -->
+        <!-- AQUI SE DEFINEN LOS DATOS QUE SE CARGAN SIEMPRE EN LA APLICACIÓN  -->
         <record id="aparcamiento1" model="garaje.aparcamiento">
             <field name="name">Plaza Mayor</field>
             <field name="plazas">8</field>
