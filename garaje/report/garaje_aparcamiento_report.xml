@@ -2,9 +2,9 @@
     <record id="garaje.aparcamiento_report" model="ir.actions.report">
         <field name="name">Informe de Aparcamiento</field>
         <field name="model">garaje.aparcamiento</field>
-        <!-- <field name="report_type">qweb-html</field> -->
+        <field name="report_type">qweb-html</field>
         <!-- para sacar el pdf sin mostrarlo previamente -->
-        <field name="report_type">qweb-pdf</field>
+        <!-- <field name="report_type">qweb-pdf</field> -->
         <field name="report_name">garaje.aparcamiento_report_view</field>
         <field name="report_file">garaje.aparcamiento_report</field>
         <field name="binding_model_id" ref="model_garaje_aparcamiento"/>
